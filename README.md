@@ -12,7 +12,7 @@ Find the Add Useful? [You can always buy me a coffee](https://www.buymeacoffee.c
 
 - npm run install-dependencies
 - rename .env.temp to .env
-- setup values for -    MONGO_URL, JWT_SECRET, JWT_LIFETIME
+- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME
 - npm start
 - visit url http://localhost:3000/
 
@@ -92,7 +92,7 @@ npm install styled-components
 ```
 
 ```js
-import styled from 'styled-components';
+import styled from "styled-components";
 const El = styled.el`
   // styles go here
 `;
@@ -116,3 +116,94 @@ const Component = () => {
 
 - only responsible for styling
 - wrappers folder in assets
+
+#### Logo and Images
+
+- logo built in Figma
+- [Cool Images](https://undraw.co/)
+
+#### Logo
+
+- create <b>components</b> folder in source
+- create Logo.js
+- move import and image logic
+- export as default
+- utilize index.js
+
+#### React Router
+
+- Version 6
+- [React Router Docs](https://reactrouter.com/docs/en/v6)
+
+```sh
+npm install history@5 react-router-dom@6
+```
+
+- import four components
+
+```js
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+```
+
+- Connect to browser's URL with BrowserRouter
+- Routes instead of Switch
+
+```js
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<div>Dashboard</div>} />
+    <Route path="/register" element={<div>Register</div>} />
+    <Route path="/landing" element={<Landing />} />
+    <Route path="*" element={<div>Error</div>} />
+  </Routes>
+</BrowserRouter>
+```
+
+```js
+<nav>
+  <Link to="/">Dashboard</Link>
+  <Link to="/register">Register</Link>
+  <Link to="/landing">Home</Link>
+</nav>
+```
+
+- go to Landing.js
+
+```js
+import { Link } from "react-router-dom";
+return (
+  <Link to="/register" className="btn btn-hero">
+    Login / Register
+  </Link>
+);
+```
+
+#### Setup Pages
+
+- create Error, Register, Dashboard pages
+- basic return
+- create index.js
+- import all the pages
+- export one by one
+- basically the same, as in components
+- import App.js
+- add to element={}
+- remove temp navbar
+
+#### Error Page
+
+```js
+import { Link } from "react-router-dom";
+import img from "../assets/images/not-found.svg";
+import Wrapper from "../assets/wrappers/ErrorPage";
+return (
+  <Wrapper className="full-page">
+    <div>
+      <img src={img} alt="not found" />
+      <h3>text</h3>
+      <p>text</p>
+      <Link to="/">back home</Link>
+    </div>
+  </Wrapper>
+);
+```
