@@ -533,3 +533,92 @@ const clearAlert = () => {
   }, 3000);
 };
 ```
+
+#### Setup Server
+
+- stop the dev server in client
+- cd ..
+- start setting up our server
+- setup package.json
+
+```sh
+npm init -y
+```
+
+- create server.js
+- console.log('server running...')
+
+```sh
+node server
+```
+
+#### ES6 vs CommonJS
+
+```js
+CommonJS;
+const express = require("express");
+const app = express();
+```
+
+```js
+ES6;
+import express from "express";
+const app = express();
+```
+
+- file extension .mjs
+
+```js
+package.json
+"type":"module"
+```
+
+#### Nodemon and Basic Express Server
+
+```sh
+npm install nodemon --save-dev
+```
+
+```js
+package.json
+"start":"nodemon server"
+```
+
+```sh
+npm install express
+```
+
+```js
+import express from "express";
+const app = express();
+app.get("/", (req, res) => {
+  res.send("Welcome!");
+});
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server is listening on port ${port}...`));
+```
+
+# Jobify
+
+#### Track Your Job Search
+
+Project in Action - [Jobify](https://www.jobify.live/)
+
+#### Support
+
+Find the App Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
+
+#### Run The App Locally
+
+```sh
+npm run install-dependencies
+```
+
+- rename .env.temp to .env
+- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME
+
+```sh
+npm start
+```
+
+- visit url http://localhost:3000/
