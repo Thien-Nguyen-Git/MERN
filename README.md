@@ -874,3 +874,31 @@ npm install http-status-codes
 - setup index.js just like in the front-end
 - import {BadRequestError} in authController
 - gotcha "errors/index.js"
+
+#### Hash Passwords
+
+- one way street, only compare hashed values
+- [bcrypt.js](https://www.npmjs.com/package/bcryptjs)
+
+```sh
+npm install bcryptjs
+```
+
+- User Model
+- import bcrypt from 'bcryptjs'
+- await genSalt(10)
+- await hash(password , salt)
+- await compare(requestPassword , currentPassword)
+- [mongoose middleware](https://mongoosejs.com/docs/middleware.html)
+- UserSchema.pre('save',async function(){
+  "this" points to instance created by UserSchema
+  })
+
+#### Mongoose - Custom Instance Methods
+
+[Custom Instance Methods](https://mongoosejs.com/docs/guide.html#methods)
+
+- UserSchema.methods.createJWT = function(){console.log(this)}
+- register controller
+- right after User.create()
+- invoke user.createJWT()
